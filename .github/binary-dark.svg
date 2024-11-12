@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="174.625mm"
+   height="55.562504mm"
+   viewBox="0 0 174.625 55.562504"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="binary.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.2106692"
+     inkscape:cx="311.39803"
+     inkscape:cy="198.65047"
+     inkscape:window-width="2560"
+     inkscape:window-height="1537"
+     inkscape:window-x="1672"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-70.421257,-95.877769)">
+    <rect
+       style="fill:#151b23;fill-opacity:1;stroke-width:0.264998;stroke-linejoin:bevel;stroke-miterlimit:5"
+       id="rect14"
+       width="174.625"
+       height="55.562504"
+       x="70.421257"
+       y="95.877769" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="78.675491"
+       y="101.62252"
+       id="text1"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#f0f6fc;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="101.62252"
+         id="tspan2">---</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#adffb4;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="106.48275"
+         id="tspan11">+++</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#d2a8ff;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="111.34297"
+         id="tspan3">@@ -0000,41 +0000,38 @@</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#ffdcd7;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="116.2032"
+         id="tspan4">-0000      | 41                            | A          |</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#f0f6fc;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="121.06343"
+         id="tspan5"> 0001 0000 | DE AD BE EF BA AD F0 0D BA 6D | .........m |</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#f0f6fc;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="125.92365"
+         id="tspan6"> 000B 000A | 00 00 00                      | ...        |</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#ffdcd7;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="130.78389"
+         id="tspan7">-000E      | 00                            | .          |</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#adffb4;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="135.6441"
+         id="tspan8">+     000D | BE AF C0                      | ...        |</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#f0f6fc;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="140.50433"
+         id="tspan9"> 000F 0010 | DE                            | .          |</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#ffdcd7;fill-opacity:1;stroke-width:0.264583"
+         x="78.675491"
+         y="145.36456"
+         id="tspan10">-0010      | AD                            | .          |</tspan></text>
+    <g
+       id="g1"
+       transform="translate(59.638312,112.57483)" />
+  </g>
+</svg>

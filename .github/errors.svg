@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="174.625mm"
+   height="71.4375mm"
+   viewBox="0 0 174.625 71.4375"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="errors.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.2104336"
+     inkscape:cx="356.48383"
+     inkscape:cy="422.57584"
+     inkscape:window-width="2560"
+     inkscape:window-height="1537"
+     inkscape:window-x="1672"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-10.409395,-36.543621)">
+    <rect
+       style="fill:#f6f8fa;fill-opacity:1;stroke-width:0.264998;stroke-linejoin:bevel;stroke-miterlimit:5"
+       id="rect14"
+       width="174.625"
+       height="71.4375"
+       x="10.409395"
+       y="36.543621" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="15.503355"
+       y="43.409393"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="43.409393">1) bank_account.deposit (test_bank.c:11)</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="48.269619"
+         id="tspan2">      Message: <tspan
+   style="fill:#0550ae;fill-opacity:1"
+   id="tspan14">expected 'DEPOSIT' to equal 'balance'</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="53.129848"
+         id="tspan3">       Assert: <tspan
+   style="font-weight:bold"
+   id="tspan17">DEPOSIT = balance</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="57.990074"
+         id="tspan4">        Found: <tspan
+   style="fill:#cf222e;fill-opacity:1"
+   id="tspan16">100 = 200</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="62.850304"
+         id="tspan5">      |</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="67.710526"
+         id="tspan6">    6 | TEST(bank_account, overdraw)</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="72.570755"
+         id="tspan7">    7 | {</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="77.430984"
+         id="tspan8">    8 |     int balance, DEPOSIT = 100;</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="82.291214"
+         id="tspan9">    8 |     BankAccount *account = BankAccount_Open();</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="87.151436"
+         id="tspan10">    9 |     BankAccount_Deposit(account, DEPOSIT*2);</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="92.011665"
+         id="tspan11">   10 |     balance = BankAccount_GetBalance(account);</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="96.871895"
+         id="tspan12">   11 &gt;     ASSERT_EQ(DEPOSIT, balance);</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#1f2328;fill-opacity:1;stroke-width:0.264583"
+         x="15.503355"
+         y="101.73212"
+         id="tspan13">      |</tspan></text>
+  </g>
+</svg>
