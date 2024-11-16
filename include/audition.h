@@ -368,11 +368,29 @@ static FILE *audition__stdany(int fd) {
 }
 
 static FILE *audition__tmpfile(void) {
+#if defined(_MSC_VER)
+    FILE *fp = NULL;
+    if (tmpfile_s(&fp) == 0)
+    {
+        return fp;
+    }
+    return NULL;
+#else
     return tmpfile();
+#endif
 }
 
 static FILE *audition__fopen(const char *filename, const char *mode) {
+#if defined(_MSC_VER)
+    FILE *fp = NULL;
+    if (fopen_s(&fp, filename, mode) == 0)
+    {
+        return fp;
+    }
+    return NULL;
+#else
     return fopen(filename, mode);
+#endif
 }
 
 static int audition__fputs(const char *buffer, FILE *stream) {
@@ -408,7 +426,9 @@ static int audition__fflush(FILE *stream) {
 }
 
 static int audition__setmode(int fd, int mode) {
-#if defined(_WIN32)
+#if defined(_MSC_VER)
+    return _setmode(fd, mode);
+#elif defined(_WIN32)
     return setmode(fd, mode);
 #else
     return -1;
@@ -416,7 +436,11 @@ static int audition__setmode(int fd, int mode) {
 }
 
 static FILE *audition__fdopen(int fd, const char *format) {
+#if defined(_MSC_VER)
+    return _fdopen(fd, format);
+#else
     return fdopen(fd, format);
+#endif
 }
 
 static int audition__setvbuf(FILE *stream, char *buffer, int mode, size_t size) {
@@ -424,15 +448,27 @@ static int audition__setvbuf(FILE *stream, char *buffer, int mode, size_t size) 
 }
 
 static int audition__fileno(FILE *stream) {
+#if defined(_MSC_VER)
+    return _fileno(stream);
+#else
     return fileno(stream);
+#endif
 }
 
 static int audition__dup(int fd) {
+#if defined(_MSC_VER)
+    return _dup(fd);
+#else
     return dup(fd);
+#endif
 }
 
 static int audition__dup2(int src, int dst) {
+#if defined(_MSC_VER)
+    return _dup2(src, dst);
+#else
     return dup2(src, dst);
+#endif
 }
 
 static const struct xUnitLibC
