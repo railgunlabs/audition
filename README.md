@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/audition-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset=".github/audition.svg">
-  <img alt="Audition" src=".github/audition.svg" width="408px">
+  <img alt="Audition" src=".github/audition.svg" width="270px">
 </picture>
 
 **Audition** is a modern testing framework for C11 and beyond.
