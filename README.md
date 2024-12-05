@@ -86,7 +86,7 @@ ASSERT_EQ(z, NULL);
 
 ## Sandbox Isolation
 
-Tests can be executed in a separate address known as the _sandbox_ which prevents crashes and timeouts from taking down the test runner.
+Tests can be executed in a separate address space known as the _sandbox_ which prevents crashes and timeouts from taking down the test runner.
 The sandbox is also used to test intentional termination and POSIX signals.
 
 The following test case expects the program to terminate with status code 2.
@@ -97,7 +97,7 @@ TEST(app, fatal_error, .exit_code=2) {
 }
 ```
 
-The following test case will be aborted if it lasts longer than three seconds.
+The following test case will be aborted if it runs longer than three seconds.
 
 ```c
 TEST(app, possible_deadlock, .timeout=3000 /* milliseconds */) {
