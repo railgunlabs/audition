@@ -10,6 +10,11 @@
 [![Examples](https://img.shields.io/badge/Examples-blue)](https://github.com/RailgunLabs/audition-examples)&nbsp;
 [![Documentation](https://img.shields.io/badge/Documentation-blue)](https://RailgunLabs.com/audition/manual)
 
+Audition is closed-source.
+This repository contains the public header file and license text for Audition, allowing you to transparently track changes over time.
+To install Audition on your system, download the appropriate binary for your platform from the [releases page](https://github.com/RailgunLabs/audition/releases/).
+For more detailed installation instructions, visit the [project's webpage](https://railgunlabs.com/audition/manual/#installing-audition).
+
 ## Features
 
 * xUnit framework design (i.e. tests, suites, fixtures)
