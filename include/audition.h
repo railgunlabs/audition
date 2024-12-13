@@ -106,7 +106,7 @@ typedef struct TestOptions
 {
     int32_t iterations;
     StatusCode exit_status;
-    StatusCode signal;
+    int64_t signal;
     int timeout;
     bool sandbox;
 } TestOptions;
