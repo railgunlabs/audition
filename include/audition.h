@@ -593,6 +593,8 @@ struct xUnitEntryPoint
 #endif
 
 #define COMPARE_FUNCS_DEFS(NAME)                                                                            \
+    XAPI void audit_expect_## NAME ##_char(char x_val, char y_val,                                          \
+        const char *x_var, const char *y_var, const char *file, int line, bool fail, const char *msg, ...); \
     XAPI void audit_expect_## NAME ##_schar(signed char x_val, signed char y_val,                           \
         const char *x_var, const char *y_var, const char *file, int line, bool fail, const char *msg, ...); \
     XAPI void audit_expect_## NAME ##_uchar(unsigned char x_val, unsigned char y_val,                       \
@@ -707,6 +709,116 @@ XAPI void audit_stub_pointer(const void *src, const char *src_name, const void *
 // Fortunately, some can be worked around. Unfortunately, the workarounds require Audition to define a different
 // set of macros specifically appease for Visual Studio. Note that this workaround is not needed for Clang-CL.
 #if defined(_MSC_VER) && !defined(__clang__)
+#define XUNIT_ASSERT_EQ(X, Y, XS, YS, FAIL, ...)             \
+    _Generic((X),                                            \
+        _Bool: audit_expect_eq_bool,                         \
+        signed char: audit_expect_eq_schar,                  \
+        unsigned char: audit_expect_eq_uchar,                \
+        signed short: audit_expect_eq_sshort,                \
+        unsigned short: audit_expect_eq_ushort,              \
+        signed int: audit_expect_eq_sint,                    \
+        unsigned int: audit_expect_eq_uint,                  \
+        signed long: audit_expect_eq_slong,                  \
+        unsigned long: audit_expect_eq_ulong,                \
+        signed long long: audit_expect_eq_slonglong,         \
+        unsigned long long: audit_expect_eq_ulonglong,       \
+        float: audit_expect_eq_float,                        \
+        double: audit_expect_eq_double,                      \
+        long double: audit_expect_eq_longdouble,             \
+        default: audit_expect_eq_ptr                         \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_NE(X, Y, XS, YS, FAIL, ...)             \
+    _Generic((X),                                            \
+        _Bool: audit_expect_ne_bool,                         \
+        signed char: audit_expect_ne_schar,                  \
+        unsigned char: audit_expect_ne_uchar,                \
+        signed short: audit_expect_ne_sshort,                \
+        unsigned short: audit_expect_ne_ushort,              \
+        signed int: audit_expect_ne_sint,                    \
+        unsigned int: audit_expect_ne_uint,                  \
+        signed long: audit_expect_ne_slong,                  \
+        unsigned long: audit_expect_ne_ulong,                \
+        signed long long: audit_expect_ne_slonglong,         \
+        unsigned long long: audit_expect_ne_ulonglong,       \
+        float: audit_expect_ne_float,                        \
+        double: audit_expect_ne_double,                      \
+        long double: audit_expect_ne_longdouble,             \
+        default: audit_expect_ne_ptr                         \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_LT(X, Y, XS, YS, FAIL, ...)             \
+    _Generic((X),                                            \
+        signed char: audit_expect_lt_schar,                  \
+        unsigned char: audit_expect_lt_uchar,                \
+        signed short: audit_expect_lt_sshort,                \
+        unsigned short: audit_expect_lt_ushort,              \
+        signed int: audit_expect_lt_sint,                    \
+        unsigned int: audit_expect_lt_uint,                  \
+        signed long: audit_expect_lt_slong,                  \
+        unsigned long: audit_expect_lt_ulong,                \
+        signed long long: audit_expect_lt_slonglong,         \
+        unsigned long long: audit_expect_lt_ulonglong,       \
+        float: audit_expect_lt_float,                        \
+        double: audit_expect_lt_double,                      \
+        long double: audit_expect_lt_longdouble,             \
+        default: audit_expect_lt_ptr                         \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_LTEQ(X, Y, XS, YS, FAIL, ...)           \
+    _Generic((X),                                            \
+        signed char: audit_expect_lteq_schar,                \
+        unsigned char: audit_expect_lteq_uchar,              \
+        signed short: audit_expect_lteq_sshort,              \
+        unsigned short: audit_expect_lteq_ushort,            \
+        signed int: audit_expect_lteq_sint,                  \
+        unsigned int: audit_expect_lteq_uint,                \
+        signed long: audit_expect_lteq_slong,                \
+        unsigned long: audit_expect_lteq_ulong,              \
+        signed long long: audit_expect_lteq_slonglong,       \
+        unsigned long long: audit_expect_lteq_ulonglong,     \
+        float: audit_expect_lteq_float,                      \
+        double: audit_expect_lteq_double,                    \
+        long double: audit_expect_lteq_longdouble,           \
+        default: audit_expect_lteq_ptr                       \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_GT(X, Y, XS, YS, FAIL, ...)             \
+    _Generic((X),                                            \
+        signed char: audit_expect_gt_schar,                  \
+        unsigned char: audit_expect_gt_uchar,                \
+        signed short: audit_expect_gt_sshort,                \
+        unsigned short: audit_expect_gt_ushort,              \
+        signed int: audit_expect_gt_sint,                    \
+        unsigned int: audit_expect_gt_uint,                  \
+        signed long: audit_expect_gt_slong,                  \
+        unsigned long: audit_expect_gt_ulong,                \
+        signed long long: audit_expect_gt_slonglong,         \
+        unsigned long long: audit_expect_gt_ulonglong,       \
+        float: audit_expect_gt_float,                        \
+        double: audit_expect_gt_double,                      \
+        long double: audit_expect_gt_longdouble,             \
+        default: audit_expect_gt_ptr                         \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_GTEQ(X, Y, XS, YS, FAIL, ...)           \
+    _Generic((X),                                            \
+        signed char: audit_expect_gteq_schar,                \
+        unsigned char: audit_expect_gteq_uchar,              \
+        signed short: audit_expect_gteq_sshort,              \
+        unsigned short: audit_expect_gteq_ushort,            \
+        signed int: audit_expect_gteq_sint,                  \
+        unsigned int: audit_expect_gteq_uint,                \
+        signed long: audit_expect_gteq_slong,                \
+        unsigned long: audit_expect_gteq_ulong,              \
+        signed long long: audit_expect_gteq_slonglong,       \
+        unsigned long long: audit_expect_gteq_ulonglong,     \
+        float: audit_expect_gteq_float,                      \
+        double: audit_expect_gteq_double,                    \
+        long double: audit_expect_gteq_longdouble,           \
+        default: audit_expect_gteq_ptr                       \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
 #define XUNIT_ASSERT_EQ_STR(X, Y, XS, YS, FAIL, ...)         \
     _Generic((X),                                            \
         signed char *: audit_expect_eq_string,               \
@@ -785,6 +897,122 @@ XAPI void audit_stub_pointer(const void *src, const char *src_name, const void *
         default: audit_expect_gteq_wstring                   \
     )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
 #else
+#define XUNIT_ASSERT_EQ(X, Y, XS, YS, FAIL, ...)             \
+    _Generic((X),                                            \
+        _Bool: audit_expect_eq_bool,                         \
+        char: audit_expect_eq_char,                          \
+        signed char: audit_expect_eq_schar,                  \
+        unsigned char: audit_expect_eq_uchar,                \
+        signed short: audit_expect_eq_sshort,                \
+        unsigned short: audit_expect_eq_ushort,              \
+        signed int: audit_expect_eq_sint,                    \
+        unsigned int: audit_expect_eq_uint,                  \
+        signed long: audit_expect_eq_slong,                  \
+        unsigned long: audit_expect_eq_ulong,                \
+        signed long long: audit_expect_eq_slonglong,         \
+        unsigned long long: audit_expect_eq_ulonglong,       \
+        float: audit_expect_eq_float,                        \
+        double: audit_expect_eq_double,                      \
+        long double: audit_expect_eq_longdouble,             \
+        default: audit_expect_eq_ptr                         \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_NE(X, Y, XS, YS, FAIL, ...)             \
+    _Generic((X),                                            \
+        _Bool: audit_expect_ne_bool,                         \
+        char: audit_expect_ne_char,                          \
+        signed char: audit_expect_ne_schar,                  \
+        unsigned char: audit_expect_ne_uchar,                \
+        signed short: audit_expect_ne_sshort,                \
+        unsigned short: audit_expect_ne_ushort,              \
+        signed int: audit_expect_ne_sint,                    \
+        unsigned int: audit_expect_ne_uint,                  \
+        signed long: audit_expect_ne_slong,                  \
+        unsigned long: audit_expect_ne_ulong,                \
+        signed long long: audit_expect_ne_slonglong,         \
+        unsigned long long: audit_expect_ne_ulonglong,       \
+        float: audit_expect_ne_float,                        \
+        double: audit_expect_ne_double,                      \
+        long double: audit_expect_ne_longdouble,             \
+        default: audit_expect_ne_ptr                         \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_LT(X, Y, XS, YS, FAIL, ...)             \
+    _Generic((X),                                            \
+        char: audit_expect_lt_char,                          \
+        signed char: audit_expect_lt_schar,                  \
+        unsigned char: audit_expect_lt_uchar,                \
+        signed short: audit_expect_lt_sshort,                \
+        unsigned short: audit_expect_lt_ushort,              \
+        signed int: audit_expect_lt_sint,                    \
+        unsigned int: audit_expect_lt_uint,                  \
+        signed long: audit_expect_lt_slong,                  \
+        unsigned long: audit_expect_lt_ulong,                \
+        signed long long: audit_expect_lt_slonglong,         \
+        unsigned long long: audit_expect_lt_ulonglong,       \
+        float: audit_expect_lt_float,                        \
+        double: audit_expect_lt_double,                      \
+        long double: audit_expect_lt_longdouble,             \
+        default: audit_expect_lt_ptr                         \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_LTEQ(X, Y, XS, YS, FAIL, ...)           \
+    _Generic((X),                                            \
+        char: audit_expect_lteq_char,                        \
+        signed char: audit_expect_lteq_schar,                \
+        unsigned char: audit_expect_lteq_uchar,              \
+        signed short: audit_expect_lteq_sshort,              \
+        unsigned short: audit_expect_lteq_ushort,            \
+        signed int: audit_expect_lteq_sint,                  \
+        unsigned int: audit_expect_lteq_uint,                \
+        signed long: audit_expect_lteq_slong,                \
+        unsigned long: audit_expect_lteq_ulong,              \
+        signed long long: audit_expect_lteq_slonglong,       \
+        unsigned long long: audit_expect_lteq_ulonglong,     \
+        float: audit_expect_lteq_float,                      \
+        double: audit_expect_lteq_double,                    \
+        long double: audit_expect_lteq_longdouble,           \
+        default: audit_expect_lteq_ptr                       \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_GT(X, Y, XS, YS, FAIL, ...)             \
+    _Generic((X),                                            \
+        char: audit_expect_gt_char,                          \
+        signed char: audit_expect_gt_schar,                  \
+        unsigned char: audit_expect_gt_uchar,                \
+        signed short: audit_expect_gt_sshort,                \
+        unsigned short: audit_expect_gt_ushort,              \
+        signed int: audit_expect_gt_sint,                    \
+        unsigned int: audit_expect_gt_uint,                  \
+        signed long: audit_expect_gt_slong,                  \
+        unsigned long: audit_expect_gt_ulong,                \
+        signed long long: audit_expect_gt_slonglong,         \
+        unsigned long long: audit_expect_gt_ulonglong,       \
+        float: audit_expect_gt_float,                        \
+        double: audit_expect_gt_double,                      \
+        long double: audit_expect_gt_longdouble,             \
+        default: audit_expect_gt_ptr                         \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
+#define XUNIT_ASSERT_GTEQ(X, Y, XS, YS, FAIL, ...)           \
+    _Generic((X),                                            \
+        char: audit_expect_gteq_char,                        \
+        signed char: audit_expect_gteq_schar,                \
+        unsigned char: audit_expect_gteq_uchar,              \
+        signed short: audit_expect_gteq_sshort,              \
+        unsigned short: audit_expect_gteq_ushort,            \
+        signed int: audit_expect_gteq_sint,                  \
+        unsigned int: audit_expect_gteq_uint,                \
+        signed long: audit_expect_gteq_slong,                \
+        unsigned long: audit_expect_gteq_ulong,              \
+        signed long long: audit_expect_gteq_slonglong,       \
+        unsigned long long: audit_expect_gteq_ulonglong,     \
+        float: audit_expect_gteq_float,                      \
+        double: audit_expect_gteq_double,                    \
+        long double: audit_expect_gteq_longdouble,           \
+        default: audit_expect_gteq_ptr                       \
+    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
+
 #define XUNIT_ASSERT_EQ_STR(X, Y, XS, YS, FAIL, ...)         \
     _Generic((X),                                            \
         char *: audit_expect_eq_ascii,                       \
@@ -876,25 +1104,6 @@ XAPI void audit_stub_pointer(const void *src, const char *src_name, const void *
     )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
 #endif
 
-#define XUNIT_ASSERT_EQ(X, Y, XS, YS, FAIL, ...)             \
-    _Generic((X),                                            \
-        _Bool: audit_expect_eq_bool,                         \
-        signed char: audit_expect_eq_schar,                  \
-        unsigned char: audit_expect_eq_uchar,                \
-        signed short: audit_expect_eq_sshort,                \
-        unsigned short: audit_expect_eq_ushort,              \
-        signed int: audit_expect_eq_sint,                    \
-        unsigned int: audit_expect_eq_uint,                  \
-        signed long: audit_expect_eq_slong,                  \
-        unsigned long: audit_expect_eq_ulong,                \
-        signed long long: audit_expect_eq_slonglong,         \
-        unsigned long long: audit_expect_eq_ulonglong,       \
-        float: audit_expect_eq_float,                        \
-        double: audit_expect_eq_double,                      \
-        long double: audit_expect_eq_longdouble,             \
-        default: audit_expect_eq_ptr                         \
-    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
-
 #define XUNIT_ASSERT_EQ_APPROX(X, Y, T, XS, YS, FAIL, ...)   \
     _Generic((X),                                            \
         float: audit_expect_eq_float_approx,                 \
@@ -902,103 +1111,12 @@ XAPI void audit_stub_pointer(const void *src, const char *src_name, const void *
         long double: audit_expect_eq_longdouble_approx       \
     )(X,Y,T,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
 
-#define XUNIT_ASSERT_NE(X, Y, XS, YS, FAIL, ...)             \
-    _Generic((X),                                            \
-        _Bool: audit_expect_ne_bool,                         \
-        signed char: audit_expect_ne_schar,                  \
-        unsigned char: audit_expect_ne_uchar,                \
-        signed short: audit_expect_ne_sshort,                \
-        unsigned short: audit_expect_ne_ushort,              \
-        signed int: audit_expect_ne_sint,                    \
-        unsigned int: audit_expect_ne_uint,                  \
-        signed long: audit_expect_ne_slong,                  \
-        unsigned long: audit_expect_ne_ulong,                \
-        signed long long: audit_expect_ne_slonglong,         \
-        unsigned long long: audit_expect_ne_ulonglong,       \
-        float: audit_expect_ne_float,                        \
-        double: audit_expect_ne_double,                      \
-        long double: audit_expect_ne_longdouble,             \
-        default: audit_expect_ne_ptr                         \
-    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
-
 #define XUNIT_ASSERT_NE_APPROX(X, Y, T, XS, YS, FAIL, ...)   \
     _Generic((X),                                            \
         float: audit_expect_ne_float_approx,                 \
         double: audit_expect_ne_double_approx,               \
         long double: audit_expect_ne_longdouble_approx       \
     )(X,Y,T,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
-
-#define XUNIT_ASSERT_LT(X, Y, XS, YS, FAIL, ...)             \
-    _Generic((X),                                            \
-        signed char: audit_expect_lt_schar,                  \
-        unsigned char: audit_expect_lt_uchar,                \
-        signed short: audit_expect_lt_sshort,                \
-        unsigned short: audit_expect_lt_ushort,              \
-        signed int: audit_expect_lt_sint,                    \
-        unsigned int: audit_expect_lt_uint,                  \
-        signed long: audit_expect_lt_slong,                  \
-        unsigned long: audit_expect_lt_ulong,                \
-        signed long long: audit_expect_lt_slonglong,         \
-        unsigned long long: audit_expect_lt_ulonglong,       \
-        float: audit_expect_lt_float,                        \
-        double: audit_expect_lt_double,                      \
-        long double: audit_expect_lt_longdouble,             \
-        default: audit_expect_lt_ptr                         \
-    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
-
-#define XUNIT_ASSERT_LTEQ(X, Y, XS, YS, FAIL, ...)           \
-    _Generic((X),                                            \
-        signed char: audit_expect_lteq_schar,                \
-        unsigned char: audit_expect_lteq_uchar,              \
-        signed short: audit_expect_lteq_sshort,              \
-        unsigned short: audit_expect_lteq_ushort,            \
-        signed int: audit_expect_lteq_sint,                  \
-        unsigned int: audit_expect_lteq_uint,                \
-        signed long: audit_expect_lteq_slong,                \
-        unsigned long: audit_expect_lteq_ulong,              \
-        signed long long: audit_expect_lteq_slonglong,       \
-        unsigned long long: audit_expect_lteq_ulonglong,     \
-        float: audit_expect_lteq_float,                      \
-        double: audit_expect_lteq_double,                    \
-        long double: audit_expect_lteq_longdouble,           \
-        default: audit_expect_lteq_ptr                       \
-    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
-
-#define XUNIT_ASSERT_GT(X, Y, XS, YS, FAIL, ...)             \
-    _Generic((X),                                            \
-        signed char: audit_expect_gt_schar,                  \
-        unsigned char: audit_expect_gt_uchar,                \
-        signed short: audit_expect_gt_sshort,                \
-        unsigned short: audit_expect_gt_ushort,              \
-        signed int: audit_expect_gt_sint,                    \
-        unsigned int: audit_expect_gt_uint,                  \
-        signed long: audit_expect_gt_slong,                  \
-        unsigned long: audit_expect_gt_ulong,                \
-        signed long long: audit_expect_gt_slonglong,         \
-        unsigned long long: audit_expect_gt_ulonglong,       \
-        float: audit_expect_gt_float,                        \
-        double: audit_expect_gt_double,                      \
-        long double: audit_expect_gt_longdouble,             \
-        default: audit_expect_gt_ptr                         \
-    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
-
-#define XUNIT_ASSERT_GTEQ(X, Y, XS, YS, FAIL, ...)           \
-    _Generic((X),                                            \
-        signed char: audit_expect_gteq_schar,                \
-        unsigned char: audit_expect_gteq_uchar,              \
-        signed short: audit_expect_gteq_sshort,              \
-        unsigned short: audit_expect_gteq_ushort,            \
-        signed int: audit_expect_gteq_sint,                  \
-        unsigned int: audit_expect_gteq_uint,                \
-        signed long: audit_expect_gteq_slong,                \
-        unsigned long: audit_expect_gteq_ulong,              \
-        signed long long: audit_expect_gteq_slonglong,       \
-        unsigned long long: audit_expect_gteq_ulonglong,     \
-        float: audit_expect_gteq_float,                      \
-        double: audit_expect_gteq_double,                    \
-        long double: audit_expect_gteq_longdouble,           \
-        default: audit_expect_gteq_ptr                       \
-    )(X,Y,XS,YS,__FILE__,__LINE__,FAIL,__VA_ARGS__)
 
 #define XUNIT_HEADER_MAGIC 0x7E57C0DE4D3FEC75
 
