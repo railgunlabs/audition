@@ -1,6 +1,6 @@
 /*
  *  Audition - an xUnit Testing Framework for C11 and beyond
- *  Copyright (c) 2021-2024 Railgun Labs, LLC
+ *  Copyright (c) 2021-2025 Railgun Labs, LLC
  *
  *  This library is available under an end-user license agreement (EULA) for
  *  personal and demo use. For business use or other specific licensing needs,
