@@ -32,6 +32,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdio.h>
 #include <wchar.h>
 
 // As of Xcode 14.2 and Clang 14.0.0 on macOS Ventura, Apple does not provide
@@ -349,8 +350,6 @@ XAPI bool audit_isboxd(void);
 // interactions use the users IO routines. This ensures IO problems, like
 // interleaving output are a non-issue.
 
-#include <stdio.h>
-
 #if defined(_WIN32)
 #include <io.h>
 #include <fcntl.h>
@@ -553,7 +552,7 @@ struct xUnitEntryPoint
 
 #if defined(__GNUC__) || defined(__clang__)
     #define XUNIT_EXPECT_TYPES_EQUAL(T1, T2, MSG) \
-        _Static_assert(__builtin_types_compatible_p(typeof(T2), typeof(T1)), MSG);
+        _Static_assert(__builtin_types_compatible_p(__typeof__(T2), __typeof__(T1)), MSG);
 #else
     #define XUNIT_EXPECT_TYPES_EQUAL(T1, T2, MSG)
 #endif
