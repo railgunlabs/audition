@@ -50,10 +50,10 @@
 
 #ifndef DOXYGEN
     #if defined(_WIN32) || defined(__CYGWIN__)
-        #if defined(DLL_EXPORT)
-            #define XAPI __declspec(dllexport)
-        #elif defined(AUDITION_STATIC)
+        #if defined(AUDITION_STATIC)
             #define XAPI
+        #elif defined(DLL_EXPORT)
+            #define XAPI __declspec(dllexport)
         #else
             #define XAPI __declspec(dllimport)
         #endif
@@ -707,7 +707,7 @@ XAPI void audit_stub_pointer(const void *src, const char *src_name, const void *
 //
 // Fortunately, some can be worked around. Unfortunately, the workarounds require Audition to define a different
 // set of macros specifically appease for Visual Studio. Note that this workaround is not needed for Clang-CL.
-#if defined(_MSC_VER) && !defined(__clang__)
+#if defined(_MSC_VER) && (_MSC_VER < 1944) && !defined(__clang__)
 #define XUNIT_ASSERT_EQ(X, Y, XS, YS, FAIL, ...)             \
     _Generic((X),                                            \
         _Bool: audit_expect_eq_bool,                         \
